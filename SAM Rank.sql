@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS "Office RPDB";
 		FROM n2025_2026 
 			WHERE "Date" 
 				BETWEEN date('now','-6 months') AND date('now')		
---This is the date where interventions from the department start--
 		GROUP BY 1,2
 		HAVING sum("Supply") > 15
 		)
