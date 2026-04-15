@@ -1,3 +1,6 @@
+--Names have been edited to make it more understandable 
+--and avoid exposing any undesired information.
+
 --Calculation of the consumption rates--
 DROP TABLE IF EXISTS "Office RPDB";
 	CREATE TABLE "Office RPDB" AS 
