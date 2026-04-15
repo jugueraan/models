@@ -1,22 +1,7 @@
 																										--This is the day setter, the day setter is used to determine which day we want to deliver        
 																										--Depending on the day some restaurants might be open or not, thus indicating the day is important
 																										--Additionally the set day also allows us to calculate who will supply who                        
-																										--The code names for the restaurants is as it follows: 
 
-																												--HKS - Hello Kitty Smile					SGR - Shangrila
-																												--RTS - Ristorante Scuola					SCC - Scuola Cafe
-																												--OCT - Ocean Terrace						MRT - Mori Terrace
-																												--CFT - Craft Circus / Craft Kitchen		HSS - Haru San San
-																												--DSY - Deshuya								KNY - Koshunoya
-																												--LDB - Ladybird Road						BOB - Baobab
-																												--MTG - Miele The Gsrden					AMN - Aman		
-																										
-																										--The code names for the days are as it follows:
-																												
-																												-- 1 - Monday / 月曜日						5 - Friday / 金曜日
-																												-- 2 - Tuesday / 火曜日						6 - Saturday / 土曜日
-																												-- 3 - Wednesday / 水曜日					7 - Sunday / 日曜日
-																												-- 4 - Thursday / 木曜日
 --Day to calculate ▼ 
 WITH "Restaurants" AS (
 	SELECT a."RestaurantID", a."Day"
