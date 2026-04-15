@@ -1,6 +1,8 @@
 																										--This is the day setter, the day setter is used to determine which day we want to deliver        
 																										--Depending on the day some restaurants might be open or not, thus indicating the day is important
-																										--Additionally the set day also allows us to calculate who will supply who                        
+																										--Additionally the set day also allows us to calculate who will supply who      
+																										--Terminology SDB: Supply Database, DDB: Demand Database, RPDB: Restaurant Preference Database. 
+																										--Feel free to use and edit any of the code made by this newbie.
 
 --Day to calculate ▼ 
 WITH "Restaurants" AS (
