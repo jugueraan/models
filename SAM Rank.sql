@@ -1,30 +1,30 @@
 --Calculation of the consumption rates--
 DROP TABLE IF EXISTS "Office RPDB";
 	CREATE TABLE "Office RPDB" AS 
-		WITH "消費計算" AS (
+		WITH "Consumption Total" AS (
 		SELECT 
-			"オフィス",
-			"施設",
-			sum("納品") 
-				as "納品合計", 1- (
-			sum("残数") *1.0 /  sum("納品") )
-				 as  "消費率"
+			"Office",
+			"Restaurant",
+			sum("Supply") 
+				as "Supply Total", 1- (
+			sum("Unconsumed") *1.0 /  sum("Supply") )
+				 as  "Consumption Ratio"
 		FROM n2025_2026 
-			WHERE "日付" 
+			WHERE "Date" 
 				BETWEEN date('now','-6 months') AND date('now')		
 --This is the date where interventions from the department start--
 		GROUP BY 1,2
-		HAVING sum("納品") > 15
+		HAVING sum("Supply") > 15
 		)
 --Ranking of the rates--
 		SELECT 
-			"オフィス" AS "Office", 
-			"施設" AS "Restaurant", 
-			"納品合計",
-			"消費率",
+			"Office", 
+			"Restaurant", 
+			"Total Supply",
+			"Consumption Rate",
 			DENSE_RANK() OVER (
-				PARTITION BY "オフィス" 
+				PARTITION BY "Office" 
 				ORDER BY 
-					COALESCE("消費率",0) DESC) 
+					COALESCE("Consumtpion Rate",0) DESC) 
 			AS "Rank"
-		FROM "消費計算";
+		FROM "Consumption Total";
