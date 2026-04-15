@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS "Office RPDB";
 				as "Supply Total", 1- (
 			sum("Unconsumed") *1.0 /  sum("Supply") )
 				 as  "Consumption Ratio"
-		FROM n2025_2026 
+		FROM salesrecords 
 			WHERE "Date" 
 				BETWEEN date('now','-6 months') AND date('now')		
 		GROUP BY 1,2
